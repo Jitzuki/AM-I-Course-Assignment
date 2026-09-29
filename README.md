@@ -1,2 +1,2 @@
 # AM-I-Course-Assignment
-Course Assignment for Advanced Mathematics I
+Course Assignment Template for Advanced Mathematics I
