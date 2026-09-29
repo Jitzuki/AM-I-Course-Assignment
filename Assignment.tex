@@ -1,0 +1,527 @@
+\documentclass[answers, 10pt]{exam}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{
+	b5paper,
+	total={136mm,210mm},
+	left=20mm,
+	top=20mm,
+}
+
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathrsfs,bm}
+\usepackage{mathtools}
+\usepackage{yhmath}
+\usepackage{esint}
+
+\usepackage{graphicx,epstopdf,caption,ulem}
+\graphicspath{{figures/}}
+
+\usepackage{float,subcaption,setspace,booktabs,multirow,supertabular,lscape,threeparttable,diagbox,extarrows}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{ctex}
+%\usepackage{CJK}
+\usepackage{inputenc}
+\usepackage{xeCJK}
+
+
+\renewcommand{\solutiontitle}{\noindent\textbf{解:}\enspace}
+
+\newcommand{\studentname}{请输入你的名字}
+\newcommand{\studentid}{请输入你的学号}
+
+\begin{document}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheader{}{}{}
+\runningheader{\small 高等数学（一）作业 \;\studentid\;\studentname}
+{}
+{\small 第\thepage 页}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+\begin{center}
+	{\Large\bf 高等数学（一）在线作业答题册}
+	
+	\medskip
+	姓名：\studentname \qquad 学号：\studentid
+\end{center}
+
+\section*{解题格式范例}
+
+\noindent {\bf 习题格式说明：}问题栏将标记 (选做) 与 (必做) 题, 并预留题号. 每章要求完成所有必做题, 课本与补充选做题{\color{red}各版块均达到半数以上}. 课本原题可自行抄写.
+
+\smallskip
+\noindent {\bf 解答文本要求：}证明陈述部分要求写明{\color{red}具体论证原理}. 计算推导部分要求{\color{red}写明每一步的推导理由}. 
+
+\smallskip
+\noindent {\bf 作业评分规则：}作业评分不计算正确率, {\color{red}仅考虑完成态度}. {\color{red}单纯复制黏贴解答}, {\color{red}书写逻辑不通或抄袭痕迹明显}等现象将会酌情扣分.
+
+\smallskip
+\noindent {\bf 格式规范模版：}
+
+\begin{questions}
+	
+	\question {\bf 习题 1-2}{题 4.} (必做)
+	
+	(1) 若 $\displaystyle \lim_{n\to\infty} x_n=a$, 证明: $\displaystyle \lim_{n\to\infty} |x_n|=|a|$, 并举例说明反之不一定成立.
+	
+	(2) 若 $\displaystyle \lim_{n\to\infty} |x_n|=0$, 证明: $\displaystyle \lim_{n\to\infty} x_n=0$.
+	
+	\begin{solution}
+		(1) 由定义 $\displaystyle \lim_{n\to\infty} x_n=a$, 则 $\forall \varepsilon>0$, $\exists N\in\mathbb{N}$, $\forall n\in\mathbb{N}$, $n>N$ 使得
+		$$
+		|x_n-a|<\varepsilon,
+		$$
+		那么对以上同样的 $\varepsilon>0$, $N\in\mathbb{N}$ 由三角不等式 $||\alpha|-|\beta||\le|\alpha-\beta|$ 必有 $\forall n\in\mathbb{N}$, $n>N$ 使得
+		$$
+		||x_n|-|a||\le|x_n-a|<\varepsilon,
+		$$
+		因此由义定可知 $\displaystyle \lim_{n\to\infty} |x_n|=|a|$ 得证.
+		
+		\smallskip
+		举如下反例, 设: $x_n=(-1)^n$, 则显然 $\displaystyle \lim_{n\to\infty} |x_n|=1$ 而 $\displaystyle \lim_{n\to\infty} x_n$ 不存在.
+		
+		(2) 由定义 $\displaystyle \lim_{n\to\infty} |x_n|=0$, 则 $\forall \varepsilon>0$, $\exists N\in\mathbb{N}$, $\forall n\in\mathbb{N}$, $n>N$ 使得
+		$$
+		||x_n|-0|<\varepsilon \Rightarrow |x_n-0|<\varepsilon,
+		$$
+		同样由定义可知 $\displaystyle \lim_{n\to\infty} x_n=0$ 得证.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	运用重要极限
+	$
+	\displaystyle \lim_{n\to\infty} \left(1+\dfrac1{n}\right)^n = e
+	$
+	计算下列极限: \vspace{-0.5ex}
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \left(1-\frac1{n}\right)^n;
+		&&(2) \ldots;
+	\end{aligned} \vspace{-5ex}
+	$$	
+	\begin{solution}
+		(1) 注意到({\it 此处运用平方差公式})
+		$$
+		\left(1-\frac1{n}\right) = \frac{\left(1+\frac1{n^2}\right)}{\left(1+\frac1{n}\right)},
+		$$
+		其中分母为重要极限
+		$
+		\displaystyle \lim_{n\to\infty} \left(1+\dfrac1{n}\right)^n = e.
+		$
+		分子又有
+		$$
+		\left(1+\frac1{n^2}\right)^n = \left(1+\frac1{n^2}\right)^{n^2\cdot\frac1{n}},
+		$$
+		注意到 $\left\{\left(1+\dfrac1{n^2}\right)^{n^2}\right\}$ 是 $\left\{\left(1+\dfrac1{n}\right)^{n}\right\}$ 的子列, 且后者为单调有界数列, 故
+		$$
+		1^n\le\left(1+\frac1{n^2}\right)^n\le e^{\frac1{n}},
+		$$
+		{\it 由夹逼原理}以及
+		$
+		\displaystyle \lim_{n\to\infty} \sqrt[n]{e} = 1
+		$
+		得
+		$$
+		\lim_{n\to\infty} \left(1+\dfrac1{n^2}\right)^n = 1.
+		$$
+		{\it 再由极限的四则运算法则}
+		$$
+		\lim_{n\to\infty} \left(1-\frac1{n}\right)^n = \frac{\displaystyle \lim_{n\to\infty} \left(1+\frac1{n^2}\right)^n}{\displaystyle \lim_{n\to\infty} \left(1+\frac1{n}\right)^n} = \frac1{e}.
+		$$		
+	\end{solution}
+	
+\end{questions}
+
+\newpage
+
+\section{函数}
+
+\begin{questions}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	证明下列反三角函数等式或恒等式, 并解释其几何含义:
+	
+	\smallskip
+	$
+	\displaystyle
+	(1)\; \arctan 1 + \arctan 2 + \arctan 3 = \pi; \qquad
+	(2)\; \arctan x + \operatorname{arccot} x = \frac{\pi}{2};
+	$
+	
+	\smallskip
+	$
+	\displaystyle
+	(3)\; \arctan x + \arctan\left(\frac{1-x}{1+x}\right) = \frac{\pi}{4},\; (x>-1).
+	$
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	证明下列反三角函数恒等式:
+	
+	\smallskip
+	$
+	\displaystyle
+	(1)\; \arcsin x = \arctan\left(\frac{x}{\sqrt{1-x^2}}\right);		
+	$
+	
+	\medskip
+	$
+	\displaystyle
+	(2)\; 2\arcsin\sqrt{x} = \arccos(1-2x),\; x\in[0,1];
+	$
+	
+	\medskip
+	$
+	\displaystyle
+	(3)\; \arctan x \pm \arctan y = \arctan\left(\frac{x\pm y}{1\mp xy}\right).
+	$
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	证明下列双曲函数恒等式:
+	
+	\smallskip
+	$
+	\displaystyle
+	(1)\; \tanh(x\pm y) = \frac{\tanh x\pm\tanh y}{1\pm\tanh x\tanh y};
+	$
+	
+	\medskip
+	$
+	\displaystyle
+	(2)\; \cosh^4(2x)+4 = (4\sinh^4\!x+1)(4\cosh^4\!x+1).
+	$
+		
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	证明下列反双曲函数恒等式:
+	
+	\smallskip
+	$
+	\displaystyle
+	(1)\; \operatorname{arsinh}x = \operatorname{artanh}\left(\frac{x}{\sqrt{1+x^2}}\right);
+	$
+	
+	\medskip
+	$
+	\displaystyle
+	(2)\; \ln|\tan x\,| = -\operatorname{artanh}(\cos2x);
+	$
+	
+	\medskip
+	$
+	\displaystyle
+	(3)\; \ln x = \operatorname{arsinh}\left(\frac{x^2-1}{2x}\right) = \operatorname{arcosh}\left(\frac{x^2+1}{2x}\right) = \operatorname{artanh}\left(\frac{x^2-1}{x^2+1}\right).
+	$
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+\end{questions}
+
+\newpage
+
+\section{数列极限}
+
+\begin{questions}
+	
+	\question {\bf 习题 1-2}{题 3.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-2}{题 4.} (必做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-2}{题 5.} {\bf 习题 1-5}{题 4.} (必做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-2}{题 6.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-2}{题 7.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-6}{题 2.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-6}{题 3.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 习题 1-6}{题 4.} (选做)
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+\end{questions}
+
+\begin{questions}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	运用极限定义解释以下命题:
+	\begin{center}
+		$\forall x\in\mathbb{R}$, $\exists\,\{a_n\mid a_n\in\mathbb{Q}\}$ 使得 $\displaystyle\lim_{n\to\infty} a_n = x$.
+	\end{center}
+	即任意实数均可通过一组有理点列逼近.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	讨论满足下列条件时, 数列 $\{a_n+b_n\}$ 与 $\{a_nb_n\}$ 的敛散性:
+	\begin{center}
+		$(1)$ $\{a_n\}$与$\{b_n\}$中仅有一个收敛; \qquad $(2)$ $\{a_n\}$与$\{b_n\}$均发散.
+	\end{center}
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	论述以下计算过程的错误, 并给出正确结果:
+	$$
+	\begin{aligned}
+		\lim_{n\to\infty}\sum_{k=1}^{n} \frac1{n+k} = \lim_{n\to\infty} \frac1{n+1} + \lim_{n\to\infty} \frac1{n+2} + \cdots + \lim_{n\to\infty} \frac1{2n} = 0.
+	\end{aligned} \vspace{-5ex}
+	$$
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	计算下列极限: 
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \frac{n!}{n^n};
+		&&(2) \lim_{n\to\infty} \frac1{\sqrt[n]{n!}};
+		&&(3) \lim_{n\to\infty} (n+1)^{\frac1{\ln n}}.
+	\end{aligned} \vspace{-5ex}
+	$$
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	运用重要极限
+	$
+	\displaystyle \lim_{n\to\infty} \left(1+\dfrac1{n}\right)^n = e
+	$
+	计算下列极限: \vspace{-0.5ex}
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \left(1-\frac1{n}\right)^n;
+		&&(2) \lim_{n\to\infty} \left(1+\frac{r}{n}\right)^n,\; r\in\mathbb{Q}; \\
+		& (3) \lim_{n\to\infty} \left(1+\frac1{n}+\frac1{n^2}\right)^n;
+		&&(4) \lim_{n\to\infty} n^2\left(\ln\left(1+\frac1{n}\right)-\frac1{n}\right).
+	\end{aligned} 
+	$$
+	提示: 求解 $(4)$ 时, 注意到 $(\text{右侧数列是左侧数列的偶子列})$
+	$$
+	\frac1{2} \lim_{n\to\infty} n^2\left(\ln\left(1+\frac1{n}\right)-\frac1{n}\right) = \lim_{n\to\infty} 2n^2\left(\ln\left(1+\frac1{2n}\right)-\frac1{2n}\right)
+	$$ \vspace{-5ex}
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	计算下列求和式或乘积式的极限:
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \sum_{k=0}^{n} r^k,\; (|r|<1);
+		&&(2) \lim_{n\to\infty} \prod_{k=0}^{n} \left(1+r^{2^k}\right),\; (|r|<1); \\
+		& (3) \lim_{n\to\infty} \prod_{k=2}^{n} \left(1-\frac{1}{k^2}\right);
+		&&(4) \lim_{n\to\infty} \prod_{k=1}^{n} \left(1+\frac{k}{n^2}\right).
+	\end{aligned}
+	$$
+	补充: 请尝试在不直接计算极限的情况下证明 $(1),(2)$ 两式相等.
+	
+	\medskip
+	提示: 求解 $(4)$ 时, 先考察 $\dfrac{n^2}{k}\ln\left(1+\dfrac{k}{n^2}\right)$ 的极限.
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第一组补充题} (必做)
+	
+	证明: 数列 $\{\sin n\}$ 与 $\{\tan n\}$ 发散.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+\end{questions}
+
+\begin{questions}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	运用 $\mathrm{Cauchy}$ 命题证明: 若 $\displaystyle\lim_{n\to\infty} a_n=L$ 则
+	$$
+	\lim_{n\to\infty} \sqrt[n]{a_1a_2\cdots a_n} = L.
+	$$
+	并计算
+	$
+	\displaystyle\lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}}.
+	$
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	证明: 若 $\displaystyle\lim_{n\to\infty} a_n=A$, $\displaystyle\lim_{n\to\infty} b_n=B$ 则
+	$$
+	\lim_{n\to\infty} \frac{a_1b_n+a_2b_{n-1}+\cdots+a_nb_1}{n} = AB.
+	$$
+	提示: 本题需要用到证明 $\mathrm{Cauchy}$ 命题时类似的技巧.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	运用 $\mathrm{Stolz–Cesàro}$ 定理计算下列极限:
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}};
+		&&(2) \lim_{n\to\infty} \frac{H_n}{\ln n},\; H_n\,\text{为调和数}; \\
+		& (3) \lim_{n\to\infty} \frac1{\sqrt{n}}\left(1+\frac1{\sqrt2}+\cdots+\frac1{\sqrt{n}}\right);
+		&&(4) \lim_{n\to\infty} \frac{1!+2!+\cdots+n!}{n!}.
+	\end{aligned}
+	$$  \vspace{-5ex}
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	计算下列极限:
+	$$
+	\begin{aligned}
+		& (1) \lim_{n\to\infty} \frac{1^n+2^n+\cdots+n^n}{n^n}; \qquad
+		&&(2) \lim_{n\to\infty} \frac1{n^2}\sum_{k=0}^{n}\ln\binom{n}{k}. 
+	\end{aligned}
+	$$
+	提示: $(1)$ 不妨先考察 $\dfrac{(n-1)^n}{n^n}$, $\dfrac{(n-2)^n}{n^n},\,\cdots$ 的极限, 再尝试写出严谨的计算过程.
+	
+	\medskip
+	$(2)$ 本题可连续两次运用 $\mathrm{Stolz–Cesàro}$ 定理求解.
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	证明: 数列 $\left\{\sqrt{1+\sqrt{2+\cdots+\sqrt{n}}}\,\right\}$ 收敛.
+	
+	\smallskip
+	提示: 先证明 $\sqrt{n-1+\sqrt{n}}<1+\sqrt{n-1}$.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	证明: 数列 $\sqrt7$, $\sqrt{7-\sqrt7}$, $\sqrt{7-\sqrt{7+\sqrt7}}$, $\sqrt{7-\sqrt{7+\sqrt{7-\sqrt7}}},\cdots$ 收敛, 并求其极限.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做) (Ramanujan 命题)
+	
+	证明: 数列 $\left\{\sqrt{1+2\sqrt{1+3\sqrt{1+\cdots+n}}}\,\right\}$ 收敛, 并求其极限.
+	
+	\smallskip
+	提示: 本题为数学天才 $\mathrm{Ramanujan}$ 提出的经典问题之一, 建议查阅相关人物资料.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做)
+	
+	设数列首项 $a_0=1-a$ 且满足递推式
+	$$
+	a_{n+1}=\frac{a_n}{1-e^{-a_n}}-a,\;(0<a<1).
+	$$
+	证明: 数列 $\{a_n\}$ 收敛, 且其极限为方程 $f(x)=a$ 的实根, 其中
+	$$
+	f(x) = \frac{x}{e^x-1}.
+	$$ \vspace{-5ex}
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+	\question {\bf 第二组补充题} (选做) (算术--几何平均 Arithmetic–Geometric Mean)
+	
+	设对偶数列首项 $a_0=a$, $b_0=b$ 满足 $0<b<a$ 并由递推式
+	$$
+	a_n=\frac{a_{n-1}+b_{n-1}}{2},\quad b_n=\sqrt{a_{n-1}b_{n-1}}
+	$$
+	定义数列 $\{a_n\}$, $\{b_n\}$. 证明:
+	$$
+	\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n.
+	$$
+	此极限称为 $a,b$ 的{\bf 算术--几何平均}, 记为 $\operatorname{AGM}(a,b)$.
+	
+	\begin{solution}
+		在此处书写你的证明过程.
+	\end{solution}
+	
+\end{questions}
+	
+\end{document}
